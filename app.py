@@ -20,7 +20,7 @@ def index():
     request_count += 1
     logger.info(f"GET / — request #{request_count}")
     
-    # Crash every 5th request to simulate a bug
+    # Crash every 5th request to simulate a bug Yay
     if request_count % 5 == 0:
         logger.error(f"💥 Triggering intentional crash on request #{request_count}")
         result = 1 / 0  # ZeroDivisionError to test OpsTron

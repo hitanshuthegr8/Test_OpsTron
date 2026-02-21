@@ -15,6 +15,6 @@ services:
       OPSTRON_BACKEND_URL: "https://4912-115-96-216-17.ngrok-free.app/agent/logs/ingest"
       OPSTRON_API_KEY: "test_key"
     command: >
-      sh -c "curl -sO https://raw.githubusercontent.com/hitanshuthegr8/OpsTron/main/agent/opstron_forwarder.py && 
+      sh -c "python -c \"import urllib.request; urllib.request.urlretrieve('https://raw.githubusercontent.com/hitanshuthegr8/OpsTron/main/agent/opstron_forwarder.py', 'opstron_forwarder.py')\" && 
              pip install requests docker -q && 
              python opstron_forwarder.py"
