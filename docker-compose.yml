@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  test-app:
+    build: .
+    ports:
+      - "5000:5000"
+
+  opstron-agent:
+    image: python:3.12-slim
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      # host.docker.internal connects from inside Docker to your ngrok tunnel
+      OPSTRON_BACKEND_URL: "https://4912-115-96-216-17.ngrok-free.app/agent/logs/ingest"
+      OPSTRON_API_KEY: "test_key"
+    command: >
+      sh -c "curl -sO https://raw.githubusercontent.com/hitanshuthegr8/OpsTron/main/agent/opstron_forwarder.py && 
+             pip install requests docker -q && 
+             python opstron_forwarder.py"
