@@ -34,5 +34,5 @@ def force_error():
 
 if __name__ == '__main__':
     threading.Thread(target=background_heartbeat, daemon=True).start()
-    logger.info("🚀 Sample app starting on  port 5000... hah     aha")
+    logger.info("🚀 Sample app starting o n  port 5000... hah     aha")
     app.run(host='0.0.0.0', port=5000)
