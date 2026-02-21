@@ -12,7 +12,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     environment:
       # host.docker.internal connects from inside Docker to your ngrok tunnel
-      OPSTRON_BACKEND_URL: "https://4912-115-96-216-17.ngrok-free.app/agent/logs/ingest"
+      OPSTRON_BACKEND_URL: "https://3a81-115-96-216-17.ngrok-free.app/agent/logs/ingest"
       OPSTRON_API_KEY: "test_key"
     command: >
       sh -c "python -c \"import urllib.request; urllib.request.urlretrieve('https://raw.githubusercontent.com/hitanshuthegr8/OpsTron/main/agent/opstron_forwarder.py', 'opstron_forwarder.py')\" && 
